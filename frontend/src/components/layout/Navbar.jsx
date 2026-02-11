@@ -183,8 +183,22 @@ function Navbar() {
 
           {!user ? (
             <>
-              <li onClick={() => navigate("/signup")}>Signup</li>
-              <li onClick={() => navigate("/login")}>Login</li>
+              <li
+                onClick={() => {
+                  navigate("/signup");
+                  setOpen(false);
+                }}
+              >
+                Signup
+              </li>
+              <li
+                onClick={() => {
+                  navigate("/login");
+                  setOpen(false);
+                }}
+              >
+                Login
+              </li>
             </>
           ) : (
             <>
