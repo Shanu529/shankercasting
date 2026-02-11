@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 // import Navbar from "../components/layout/Navbar";
 import ContactSection from "../components/ContactComponents/ContactSection";
 function ContactUs() {
-  const img = "../../public/contectImages/contactImg.png";
+  // const img = "../../public/contectImages/contactImg.png";
+  const img = "/contectImages/contactImg.png";
 
   return (
     <>

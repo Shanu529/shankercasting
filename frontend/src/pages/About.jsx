@@ -3,7 +3,8 @@ import React from "react";
 import ProcessSection from "../components/aboutSectionCompoenets/ProcessSection";
 
 function About() {
-  const img = "../../public/aboutImages/bgimg.png";
+  // const img = "../../public/aboutImages/bgimg.png";
+  const img = "/aboutImages/bgimg.png";
   return (
     <>
       <section
