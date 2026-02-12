@@ -61,7 +61,7 @@ function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black px-4">
+    <div className="md:py-15 py-12 flex items-center justify-center bg-black px-4">
       <div
         className="w-full max-w-md bg-black/70 backdrop-blur-md
                    border border-white/10 rounded-2xl shadow-2xl p-8"
