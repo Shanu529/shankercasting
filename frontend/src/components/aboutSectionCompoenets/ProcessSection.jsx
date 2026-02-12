@@ -28,7 +28,11 @@ function ProcessSection() {
     <section className="bg-white py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="bg-white shadow-lg rounded-xl p-8 sm:p-10 border-b-4 border-[#000]">
+          <div
+            className="bg-white  hover:shadow-xl transition duration-300
+           
+          shadow-md rounded-xl p-8 sm:p-10 border-b-4 border-orange-500"
+          >
             <h3 className="font-semibold text-lg text-center">
               Well-equipped Manufacturing Facility
             </h3>
@@ -54,11 +58,18 @@ function ProcessSection() {
             </p>
           </div>
 
-          <div className="w-full h-[260px] sm:h-[320px] lg:h-[360px] rounded-xl overflow-hidden shadow-lg">
+          <div
+            className="w-full h-[260px] sm:h-[320px] lg:h-[380px] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 ease-out
+                        hover:-translate-y-2 group"
+          >
             <img
               src={facilityImage}
               alt="Manufacturing Facility"
-              className="w-full h-full object-cover"
+              className="
+              w-full h-full object-cover
+              transition-transform duration-700 ease-out
+              group-hover:scale-110
+      "
             />
           </div>
         </div>

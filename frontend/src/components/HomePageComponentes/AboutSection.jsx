@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 // import aboutImage from "./about-image.jpg";
 function AboutSection() {
+  const Navigate = useNavigate();
   return (
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -23,7 +25,10 @@ function AboutSection() {
               applications.
             </p>
 
-            <button className="mt-6 text-orange-500 font-semibold flex items-center gap-2 group">
+            <button
+              onClick={() => Navigate("/contact")}
+              className="mt-6 text-orange-500 font-semibold flex items-center gap-2 group"
+            >
               <span className="w-8 h-[2px] bg-orange-500 transition-all duration-300 group-hover:w-12" />
               Read More About Us
             </button>

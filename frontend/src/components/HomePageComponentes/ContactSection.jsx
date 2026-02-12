@@ -40,6 +40,21 @@ function ContactSection() {
 
   return (
     <section className="bg-white py-20">
+      <div className="text-center mb-12 sm:mb-14 lg:mb-16 px-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 tracking-tight leading-tight">
+          Get In <span className="text-orange-500">Touch</span>
+        </h2>
+
+        <div className="flex justify-center mt-4">
+          <div className="w-12 sm:w-16 h-1 bg-orange-500 rounded-full"></div>
+        </div>
+
+        <p className="mt-5 sm:mt-6 text-gray-500 text-base sm:text-lg max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
+          Have questions or need assistance? Our team is ready to help you with
+          inquiries, project discussions, and support.
+        </p>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
           <div className="flex items-center overflow-hidden rounded-md">
