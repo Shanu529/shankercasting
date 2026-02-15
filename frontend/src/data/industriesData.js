@@ -10,6 +10,8 @@ import img9 from "../assets/images/img9.webp";
 import img10 from "../assets/images/pipefiltring.jpg";
 import img11 from "../assets/images/ped.jpg";
 import img12 from "../assets/images/tools-tackles.jpg";
+// import { useEffect, useState } from "react";
+// import api from "../api/axios";
 
 // const industries = [
 //     {
@@ -122,6 +124,9 @@ import img12 from "../assets/images/tools-tackles.jpg";
 //     }
 // ];
 
+
+
+
 const industries = [
     {
         title: "Industrial Valves",
@@ -194,6 +199,9 @@ const industries = [
             }
         ]
     },
+
+
+
     {
         title: "Automotive",
         slug: "automotive",

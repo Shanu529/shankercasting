@@ -39,3 +39,34 @@ export const newsLetter = async (req, res) => {
         return res.status(500).json({ error: "Server error" });
     }
 }
+
+
+export const getAllSubscribers = async (req, res) => {
+    try {
+        const subscribers = await prisma.newsletter.findMany({
+            orderBy: { createdAt: "desc" },
+        });
+
+        return res.status(200).json({ subscribers });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Server error" });
+    }
+};
+
+export const deleteSubscriber = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        await prisma.newsletter.delete({
+            where: { id: Number(id) },
+        });
+
+        return res.json({ message: "Subscriber removed successfully" });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Server error" });
+    }
+};
