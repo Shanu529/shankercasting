@@ -14,7 +14,9 @@ import img12 from "../../assets/images/tools-tackles.jpg";
 import { useNavigate } from "react-router-dom";
 
 import industries from "../../data/industriesData.js";
-
+import { useState } from "react";
+import api from "../../api/axios.js";
+import { useEffect } from "react";
 
 
 // const industries = [
@@ -36,6 +38,26 @@ import industries from "../../data/industriesData.js";
 
 function IndustriesSection() {
 
+
+const [loading, setLoading] = useState(true);
+const [blogs, setBlogs] = useState([]);
+
+  
+const fatchBlogs = async ()=>{
+  try {
+    const res = await api.get("/api/blog");
+    setBlogs(res.data.blogs);
+  } catch (error) {
+    console.log("server error", error);
+  } finally{
+    setLoading(false)
+  }
+}
+
+  useEffect(() => {
+    fatchBlogs();
+  }, []);
+
   const navigate = useNavigate();
   return (
     <section className="relative bg-black py-28 overflow-hidden">
@@ -55,7 +77,7 @@ function IndustriesSection() {
 
         {/* cardss */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {industries.map((item, index) => (
+          {blogs.map((item, index) => (
             <div
              onClick={() => navigate(`/blog/${item.slug}`)}
 

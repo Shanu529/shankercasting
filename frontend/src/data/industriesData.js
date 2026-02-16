@@ -201,7 +201,6 @@ const industries = [
     },
 
 
-
     {
         title: "Automotive",
         slug: "automotive",

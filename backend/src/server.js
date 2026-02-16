@@ -35,6 +35,7 @@ app.use("/api/imagekit", imagekitRoutes);
 // blog routes
 app.use("/api/blog", blogRoutes);
 
+
 app.listen(PORT, (req, res) => {
     console.log("server is running");
 })

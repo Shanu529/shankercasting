@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api/axios";
+import { Link } from "react-router-dom";
 
 function AllBlogs() {
   const [blogs, setBlogs] = useState([]);
@@ -78,17 +79,37 @@ function AllBlogs() {
               <tbody className="divide-y divide-gray-200">
                 {blogs.map((blog) => (
                   <tr key={blog.id} className="hover:bg-gray-50 transition">
-                    <td className="px-6 py-4 font-medium text-gray-800">
-                      {blog.title}
+                    <td className="px-6 py-4 font-medium">
+  <Link
+    to={`/blog/${blog.slug}`}
+    target="_blank"
+    className="text-gray-800 hover:text-blue-600 hover:underline transition"
+  >
+    {blog.title}
+  </Link>
+</td>
+
+                    <td className="px-6 py-4 text-gray-500">
+                        <Link
+    to={`/blog/${blog.slug}`}
+    target="_blank"
+    className="text-gray-800 hover:text-blue-600 hover:underline transition"
+  >
+   {blog.slug}
+  </Link>
                     </td>
-                    <td className="px-6 py-4 text-gray-500">{blog.slug}</td>
+                    
                     <td className="px-6 py-4 text-gray-500">
                       {new Date(blog.createdAt).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 text-center space-x-3">
-                      <button className="text-blue-600 hover:underline">
-                        Edit
-                      </button>
+                      <Link
+  to={`/admin/edit/${blog.id}`}
+  className="text-blue-600 hover:underline"
+>
+  Edit
+</Link>
+
                       <button
                         onClick={() => setDeleteId(blog.id)}
                         className="text-red-600 hover:underline"

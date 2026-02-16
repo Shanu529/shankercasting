@@ -17,6 +17,7 @@ import CreateBlog from "./components/adminDashboard/CreateBlog";
 import AllBlogs from "./components/adminDashboard/AllBlogs";
 import Contacts from "./components/adminDashboard/Contacts";
 import NewsLetter from "./components/adminDashboard/NewsLetter";
+import EditBlog from "./pages/EditBlog";
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route path="blogs" element={<AllBlogs />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="newsletter" element={<NewsLetter />} />
+          <Route path="edit/:id" element={<EditBlog />} />
         </Route>
       </Routes>
 
