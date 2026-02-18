@@ -23,7 +23,6 @@ function EditBlog() {
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
 
-  // 🔥 Fetch Blog
   useEffect(() => {
     const fetchBlog = async () => {
       try {
@@ -58,7 +57,6 @@ function EditBlog() {
     fetchBlog();
   }, [id]);
 
-  // 🔥 Handle Input
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -66,7 +64,6 @@ function EditBlog() {
     });
   };
 
-  // 🔥 Handle Image
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -75,7 +72,6 @@ function EditBlog() {
     setPreview(URL.createObjectURL(file));
   };
 
-  // 🔥 Update Blog
   const handleUpdate = async (e) => {
     e.preventDefault();
 
@@ -105,7 +101,7 @@ function EditBlog() {
       });
 
       setSuccess(true);
-      setMessage("✅ Blog updated successfully!");
+      setMessage(" Blog updated successfully!");
 
       // Redirect after 1.5s
       setTimeout(() => {
@@ -156,7 +152,7 @@ function EditBlog() {
         onSubmit={handleUpdate}
         className="bg-white p-8 rounded-xl shadow space-y-6"
       >
-        {/* Title */}
+   
         <div>
           <label className="block mb-2 font-medium">
             Blog Title
@@ -170,7 +166,6 @@ function EditBlog() {
           />
         </div>
 
-        {/* Slug */}
         <div>
           <label className="block mb-2 font-medium">
             Slug
@@ -184,7 +179,6 @@ function EditBlog() {
           />
         </div>
 
-        {/* Content */}
         <div>
           <label className="block mb-2 font-medium">
             Content
@@ -199,7 +193,6 @@ function EditBlog() {
           />
         </div>
 
-        {/* Meta Title */}
         <div>
           <label className="block mb-2 font-medium">
             Meta Title
@@ -212,7 +205,6 @@ function EditBlog() {
           />
         </div>
 
-        {/* Meta Description */}
         <div>
           <label className="block mb-2 font-medium">
             Meta Description
@@ -225,8 +217,6 @@ function EditBlog() {
             className="w-full border p-3 rounded"
           />
         </div>
-
-        {/* Image */}
         <div>
           <label className="block mb-2 font-medium">
             Blog Image
@@ -248,7 +238,6 @@ function EditBlog() {
           />
         </div>
 
-        {/* Button */}
         <button
           type="submit"
           disabled={updateLoading}

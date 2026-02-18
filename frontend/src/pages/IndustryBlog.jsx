@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import api from "../api/axios";
 import { useEffect, useState } from "react";
 
@@ -7,79 +7,90 @@ function IndustryBlog() {
 
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
         const res = await api.get(`/api/blog/${slug}`);
         setBlog(res.data.singleBlog);
-      } catch (error) {
-        console.log("Error fetching blog", error);
+      } catch (err) {
+        setError("Failed to load blog.");
       } finally {
         setLoading(false);
       }
     };
-
     fetchBlog();
   }, [slug]);
 
-  if (loading) {
+  if (loading)
     return (
-      <div className="flex items-center justify-center h-[60vh] text-gray-500">
-        Loading blog...
+      <div className="min-h-screen flex items-center justify-center bg-black text-white text-lg tracking-wide">
+        Loading...
       </div>
     );
-  }
 
-  if (!blog) {
+  if (error)
     return (
-      <div className="flex items-center justify-center h-[60vh] text-gray-500">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white">
+        <p className="mb-6">{error}</p>
+        <Link to="/" className="px-6 py-2 border border-white rounded-full hover:bg-white hover:text-black transition">
+          Back to Blogs
+        </Link>
+      </div>
+    );
+
+  if (!blog)
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
         Blog Not Found
       </div>
     );
-  }
+
+  const formattedDate = new Date(blog.createdAt).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
   return (
-    <section className="bg-gray-50 min-h-screen">
-      
-    
+    <section className="bg-white min-h-screen text-gray-900">
+
       {blog.image && (
-        <div className="relative h-[350px] sm:h-[450px] lg:h-[550px] w-full">
+        <div className="relative h-[500px] w-full overflow-hidden">
           <img
             src={blog.image}
             alt={blog.title}
             className="w-full h-full object-cover"
           />
-
-          
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center px-6">
-            <div className="text-center max-w-3xl">
-              <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center px-6">
+            <div className="text-center max-w-5xl">
+              <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
                 {blog.title}
               </h1>
-
-              <p className="text-gray-200 mt-4 text-sm sm:text-base">
-                {new Date(blog.createdAt).toDateString()}
+              <p className="text-gray-300 mt-6 text-sm uppercase tracking-widest">
+                {formattedDate}
               </p>
             </div>
           </div>
         </div>
       )}
 
-      
-      <div className="max-w-3xl mx-auto px-6 py-16">
+      <div className="max-w-3xl mx-auto px-6 py-20">
 
-       
-        <div className="w-20 h-1 bg-gray-900 mb-10"></div>
+        <Link
+          to="/"
+          className="text-sm uppercase tracking-widest text-gray-500 hover:text-black transition"
+        >
+          ← Back to home
+        </Link>
 
-      
-        <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed whitespace-pre-line">
+        <article className="mt-12 text-lg leading-9 font-light whitespace-pre-line">
           {blog.content}
-        </div>
+        </article>
 
-       
-        <div className="border-t border-gray-200 mt-16 pt-6 text-sm text-gray-500">
-          Published on {new Date(blog.createdAt).toLocaleDateString()}
+        <div className="mt-20 pt-8 border-t text-sm text-gray-400 tracking-wide">
+          Published on {formattedDate}
         </div>
       </div>
     </section>
