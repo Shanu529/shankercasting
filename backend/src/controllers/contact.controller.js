@@ -5,48 +5,88 @@ import prisma from "../config/prisma.js"
 import { transporter } from "../utils/mail.js";
 
 
+// export const createContact = async (req, res) => {
+//     try {
+//         const { name, email, message } = req.body;
+
+//         if (!name || !email) {
+//             return res.status(400).json({ error: "Name and Email required" });
+//         }
+
+//         // save in DB
+//         await prisma.contact.create({
+//             data: { name, email, message },
+//         });
+
+//         // rrespond immediately
+//         res.status(201).json({
+//             success: true,
+//             message: "Contact saved",
+//         });
+
+//         // end email in background
+//         transporter.sendMail({
+//             from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_USER}>`,
+//             to: process.env.MAIL_TO,
+//             replyTo: email,
+//             subject: "New Contact Message",
+//             html: `
+//         <h3>New Contact</h3>
+//         <p><b>Name:</b> ${name}</p>
+//         <p><b>Email:</b> ${email}</p>
+//         <p><b>Message:</b> ${message || "-"}</p>
+//       `,
+//         }).then(() => {
+//             console.log("Email sent");
+//         }).catch(err => {
+//             console.error("Email error:", err);
+//         });
+
+//     } catch (err) {
+//         console.error(err);
+//         return res.status(500).json({ error: "Server error" });
+//     }
+// };
+
 export const createContact = async (req, res) => {
-    try {
-        const { name, email, message } = req.body;
+  try {
+    const { name, email, message } = req.body;
 
-        if (!name || !email) {
-            return res.status(400).json({ error: "Name and Email required" });
-        }
+    if (!name || !email) {
+      return res.status(400).json({ error: "Name and Email required" });
+    }
 
-        // save in DB
-        await prisma.contact.create({
-            data: { name, email, message },
-        });
+    // Save to DB
+    await prisma.contact.create({
+      data: { name, email, message },
+    });
 
-        // rrespond immediately
-        res.status(201).json({
-            success: true,
-            message: "Contact saved",
-        });
-
-        // end email in background
-        transporter.sendMail({
-            from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_USER}>`,
-            to: process.env.MAIL_TO,
-            replyTo: email,
-            subject: "New Contact Message",
-            html: `
+    // Send email FIRST
+    await transporter.sendMail({
+      from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_USER}>`,
+      to: process.env.MAIL_TO,
+      replyTo: email,
+      subject: "New Contact Message",
+      html: `
         <h3>New Contact</h3>
         <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Message:</b> ${message || "-"}</p>
       `,
-        }).then(() => {
-            console.log("Email sent");
-        }).catch(err => {
-            console.error("Email error:", err);
-        });
+    });
 
-    } catch (err) {
-        console.error(err);
-        return res.status(500).json({ error: "Server error" });
-    }
+    // Then send response
+    return res.status(201).json({
+      success: true,
+      message: "Contact saved and email sent",
+    });
+
+  } catch (err) {
+    console.error("Contact error:", err);
+    return res.status(500).json({ error: "Server error" });
+  }
 };
+
 
 /**
  * get all contacts
