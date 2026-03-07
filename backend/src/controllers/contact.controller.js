@@ -61,7 +61,6 @@ export const createContact = async (req, res) => {
       data: { name, email, message },
     });
 
-    // Send email FIRST
     await transporter.sendMail({
       from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_TO,
@@ -75,7 +74,6 @@ export const createContact = async (req, res) => {
       `,
     });
 
-    // Then send response
     return res.status(201).json({
       success: true,
       message: "Contact saved and email sent",

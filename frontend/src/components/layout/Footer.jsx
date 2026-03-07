@@ -7,6 +7,11 @@ import {
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import api from "../../api/axios";
+import { MdPostAdd } from "react-icons/md";
+
+// import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { FaClock, FaMapMarkerAlt, FaInfoCircle } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 
 function Footer() {
   const [form, setForm] = useState({
@@ -71,9 +76,10 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-orange-500">
-              ABOUT US
-            </h3>
+            <h3 className="text-xl font-semibold mb-6 text-orange-500 flex items-center gap-2">
+              <FaInfoCircle />  
+                ABOUT US
+              </h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Shanker Casting Industries is a leading manufacturer of investment
               casting components. Our state-of-the-art manufacturing processes
@@ -82,16 +88,25 @@ function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-orange-500">
-              Opening Hours
-            </h3>
-            <p className="text-gray-300 text-sm">09:00 AM To 6:00 PM</p>
-          </div>
+          <h3 className="text-xl font-semibold mb-6 text-orange-500 flex items-center gap-2">
+          <FaClock />
+            Opening Hours
+          </h3>
+
+          <p className="text-gray-300 text-sm">
+            Monday – Saturday : 09:00 AM – 6:00 PM
+          </p>
+
+          <p className="text-gray-400 text-sm mt-1">
+            Sunday : Closed
+          </p>
+        </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-orange-500">
-              Recent Posts
-            </h3>
+           <h3 className="text-xl font-semibold mb-6 text-orange-500 flex items-center gap-2">
+            <MdPostAdd size={28} />
+            Recent Post
+          </h3>
 
             <ul className="space-y-3 text-gray-300 text-sm">
               <li className="hover:text-orange-500 cursor-pointer transition">
@@ -107,20 +122,30 @@ function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-orange-500">
-              Location
-            </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Pawa Road, Jaspal Bangar to <br />
-              Pawa Village Kanganwal Road <br />
-              Area Ludhiana, Punjab – <br />
-              141017 India
-            </p>
-          </div>
+          <h3 className="text-xl font-semibold mb-6 text-orange-500 flex items-center gap-2">
+            <FaMapMarkerAlt />
+            Location
+          </h3>
+
+          <p className="text-gray-300 text-sm leading-relaxed mb-3">
+            Pawa Road, Jaspal Bangar to <br />
+            Pawa Village Kanganwal Road <br />
+            Area Ludhiana, Punjab – <br />
+            141017 India
+          </p>
+
+          <a
+            href="https://maps.app.goo.gl/Tb7oSGLr94tmAA9K6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-md transition"
+          >
+            View on Map <FiExternalLink />
+          </a>
+        </div>
         </div>
       </div>
 
-      {/* bottom section of footer */}
       <div className="bg-[#0b0b0b] text-white border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14">
           <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-10">

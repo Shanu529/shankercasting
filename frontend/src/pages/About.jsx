@@ -7,6 +7,9 @@ function About() {
   const img = "/aboutImages/bgimg.png";
   return (
     <>
+
+   
+
       <section
         className="
       
@@ -20,7 +23,7 @@ function About() {
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent" />
-
+    
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mt-24 max-w-2xl">
             <h1 className="text-white font-bold leading-tight text-3xl sm:text-4xl lg:text-5xl">

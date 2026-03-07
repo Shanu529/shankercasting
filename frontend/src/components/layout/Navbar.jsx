@@ -28,7 +28,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="relative z-50 flex items-center justify-between px-8 py-4 bg-black shadow-lg border-b border-gray-800">
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 bg-black shadow-lg border-b border-gray-800">
         <img
           src="/logo.png"
           alt="Logo"
@@ -54,6 +54,12 @@ function Navbar() {
             className="cursor-pointer hover:text-orange-400 transition"
           >
             Contact
+          </li>
+          <li
+            onClick={() => navigate("/certificate")}
+            className="cursor-pointer hover:text-orange-400 transition"
+          >
+            Certification
           </li>
         </ul>
 

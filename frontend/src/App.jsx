@@ -19,7 +19,7 @@ import Contacts from "./components/adminDashboard/Contacts";
 import NewsLetter from "./components/adminDashboard/NewsLetter";
 import EditBlog from "./pages/EditBlog";
 
-
+import Certificates from "./pages/Certificates";
 function App() {
   const location = useLocation();
   console.log(location);
@@ -39,6 +39,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/certificate" element={<Certificates />} />
 
         <Route path="/blog/:slug" element={<IndustryBlog />} />
         {/* <Route path="/blog/:id" element={<IndustryBlog />} /> */}

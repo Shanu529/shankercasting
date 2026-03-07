@@ -26,6 +26,28 @@ function ProcessSection() {
 
   return (
     <section className="bg-white py-16 sm:py-20">
+
+         <section className=" py-14 sm:py-16 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+            About <span className="text-orange-500">Us</span>
+          </h2>
+
+          <div className="flex justify-center mt-4">
+            <div className="w-12 sm:w-16 h-1 bg-orange-500 rounded-full"></div>
+          </div>
+
+          <p className="mt-6 text-gray-600 text-sm sm:text-base md:text-lg max-w-5xl mx-auto leading-relaxed">
+            Shanker Casting Industries is a trusted manufacturer of high-quality 
+            investment casting components. With modern manufacturing facilities, 
+            advanced technology, and a skilled team, we deliver precision-engineered 
+            products that meet strict industry standards and diverse application needs.
+          </p>
+        </div>
+      </div>
+    </section>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div
