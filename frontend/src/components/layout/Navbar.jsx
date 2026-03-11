@@ -163,6 +163,14 @@ function Navbar() {
           >
             Contact
           </li>
+          <li
+            onClick={() => {
+              navigate("/certificate");
+              setOpen(false);
+            }}
+          >
+            Certification
+          </li>
 
           {!user ? (
             <>
