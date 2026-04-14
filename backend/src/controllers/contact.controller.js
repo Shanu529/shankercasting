@@ -1,10 +1,4 @@
 
-
-import prisma from "../config/prisma.js"
-// import { createTransporter } from "../utils/mail.js";
-import { transporter } from "../utils/mail.js";
-
-
 // export const createContact = async (req, res) => {
 //     try {
 //         const { name, email, message } = req.body;
@@ -47,6 +41,12 @@ import { transporter } from "../utils/mail.js";
 //         return res.status(500).json({ error: "Server error" });
 //     }
 // };
+
+
+import prisma from "../config/prisma.js"
+// import { createTransporter } from "../utils/mail.js";
+import { transporter } from "../utils/mail.js";
+
 
 export const createContact = async (req, res) => {
   try {

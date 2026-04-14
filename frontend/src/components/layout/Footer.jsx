@@ -149,6 +149,7 @@ function Footer() {
       <div className="bg-[#0b0b0b] text-white border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14">
           <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-10">
+
             <div className="text-center lg:text-left">
               <div className="flex justify-center lg:justify-start gap-4 mb-6">
                 <Link
@@ -219,6 +220,7 @@ function Footer() {
                   {loading ? "Subscribing..." : "Subscribe"}
                 </button>
               </form>
+
               {status && (
                 <p
                   className={`mt-4 text-sm font-medium transition-all duration-300 ${
@@ -230,17 +232,22 @@ function Footer() {
               )}
             </div>
 
-            <div className="text-center lg:text-right">
-              <h3 className="text-2xl font-bold text-orange-500 mb-2">
-                Shanker Casting <br /> Industries
-              </h3>
+            <p className="text-gray-400 md:text-end text-sm">
+              © {new Date().getFullYear()} Shanker Casting Industries.
+              <br />
+              All Rights Reserved.
+              <br />
+              Developed and Maintained by{" "}
+              <a
+                href="https://www.patterwal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-500 hover:underline underline"
+              >
+                Patterwal
+              </a>
+            </p>
 
-              <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} Shanker Casting Industries.
-                <br />
-                All Rights Reserved.
-              </p>
-            </div>
           </div>
         </div>
       </div>
